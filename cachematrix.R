@@ -16,7 +16,7 @@ makeCacheMatrix <- function(x = matrix()) {
   cache_functions <- list(get_matrix = get_matrix,
                           set_inverse = set_inverse,
                           get_inverse = get_inverse
-						  )
+                          )
 }
 
 
