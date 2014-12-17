@@ -2,10 +2,10 @@
 
 ## Return a list of three functions to: get a matrix, cache its inverse, and get its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(some_matrix = matrix()) {
   inverse <- NULL
   get_matrix <- function() {
-    x
+    some_matrix
   }
   set_inverse <- function(matrix_inverse) {
     inverse <<- matrix_inverse
@@ -24,14 +24,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ## if it is null, calculate the inverse, cache it, 
 ## and return the value
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(cache_functions, ...) {
   ## Return a matrix that is the inverse of 'x'
-  inverse <- x$get_inverse()
+  inverse <- cache_functions$get_inverse()
   if(!is.null(inverse)) {
     return(inverse)
   }
-  matrix <- x$get_matrix()
+  matrix <- cache_functions$get_matrix()
   matrix_inverse <- solve(matrix, ...)
-  x$set_inverse(matrix_inverse)
+  cache_functions$set_inverse(matrix_inverse)
   matrix_inverse
 }
